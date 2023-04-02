@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Count</title>
+
+    <!-- EXTERNAL STYLESHEET -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <!-- JAVASCRIPT -->
+    <script src="/script.js" defer ></script>
+</head>
+<body>
+    <header>
+        <h1 class="header__title">Tally Count</h1>
+    </header>
+
+    <!-- <aside class="controls">
+        <label>
+            <span>Display</span>
+            <select name="" id="">
+                <option value="">Single</option>
+                <option value="">Multiple</option>
+            </select>            
+        </label>
+        <label>
+            <span>Counter</span>
+            <select name="" id="">
+                <option value="">Counter 1</option>
+                <option value="">Counter 2</option>
+                <option value="">Counter 3</option>
+            </select>            
+        </label>
+        <button>Settings</button>
+    </aside> -->
+
+    <main class="counter">
+        <input class="counter__value" data-key="number" readonly value="0">
+        <div class="counter__actions">
+            <button class="counter__button counter__button_first" data-key="subtract">-</button>
+            <button class="counter__button" data-key="add">+</button>
+        </div>
+        
+    </main>
+
+    <footer>
+        Inspired by <a href="https://tallycount.app/">Tally Count</a>. Note that this is merely a student practice project for learning JavaScript
+    </footer>
+</body>
+</html>
