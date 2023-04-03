@@ -56,14 +56,19 @@ let shirts
 let batteries
 let pens
 
+let cost = shipping + shoes + toys + shirts + batteries + pens
+
 if (location = RSA) { 
-	shipping === 400 && currency === 'R' 
+	shipping = 400  
+	currency = 'R' 
 }
 
 if (location = NAM){
 	shipping = 600 
+	currency = '$'
 }else{
 	shipping = 800	
+	currency = '$'
 	shoes = 300 * 1
 	toys - 100 * 5
 	shirts = 150 * 'NONE_SELECTED'
