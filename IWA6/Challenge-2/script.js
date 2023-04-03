@@ -1,3 +1,6 @@
+
+alert('this is it')
+
 // TEMPLATE
 /*
 const rent = 400;

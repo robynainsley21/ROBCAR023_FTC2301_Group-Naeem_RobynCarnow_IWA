@@ -19,7 +19,7 @@ const primaryPhone = 'O748105141'
 const secondaryPhone = '0219131568'
 
 // Only change below this line
-let number = '12'
+let numberPrimary = '12'
 
 
 const primaryValid = typeof number === typeof primaryPhone 
