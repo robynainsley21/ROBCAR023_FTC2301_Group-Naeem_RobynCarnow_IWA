@@ -1,12 +1,11 @@
-let location = 'RSA'
-
 const FREE_WARNING = 'Free shipping only applies to single customer orders'
 const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
 const NONE_SELECTED = 0
 
-let customers = 1
-let currency = 'R'|| '$' 
+let customers = 1 
 let shipping
+const location = 'RSA'
+currency = null
 
 
 
@@ -46,8 +45,6 @@ if (cost >= 1000) {
 }else if(location === 'NK' && customers !== 1){
 	console.log(FREE_WARNING) 
 }
-
-
 
 
 
