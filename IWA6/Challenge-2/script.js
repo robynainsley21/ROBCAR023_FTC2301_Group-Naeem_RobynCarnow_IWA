@@ -1,5 +1,4 @@
 
-alert('this is it')
 
 // TEMPLATE
 /*
@@ -30,8 +29,21 @@ const minuteOfDay = 00;
 
 // Only change below this line
 
-if hourOfDay && (minuteOfDay !== null) && (hourOfDay == '00') && (minuteOfDay == '00') {
+if(hourOfDay === 00 && minuteOfDay === 00){
 	const taxAsDecimal = tax / '100'
-    const startingAfterTax = salary * '1' - taxAsDecimal
-	const balace = starting - transport - food - rent
+	const startingAfterTax = salary - taxAsDecimal
+	const cost = rent + tax + food
+	const balance = startingAfterTax - cost
+	console.log('R' + balance.toFixed(2))
+}else{
+	
 }
+
+// if (hourOfDay == 00 && minuteOfDay == 00){
+// 	parseInt(tax)
+// 	const taxAsDecimal = tax / '100';
+//     const afterTax = salary - taxAsDecimal
+// 	const balance = starting - transport - food - rent
+// }
+
+// (hourOfDay && minuteOfDay !== null)
