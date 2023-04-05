@@ -41,10 +41,10 @@ const divider = '----------------------------------'
 
 // Only change below this line
 
-const owed = 'R' + parseInt(leoBalance + sarahBalance)
+const owed = 'R' + parseInt(leoBalance) + parseInt(sarahBalance)
 const leo = `${leoName} ${leoSurname} (Owed: R${leoBalance})`
 const sarah = `${sarahName} ${sarahSurname} (Owed: R${sarahBalance})`
 const total = "Total amount owed: " 
-const result = divider + leo + sarah + divider + total + owed + divider
+const result = divider + leo + sarah + total + owed + divider
 
 console.log(result)
