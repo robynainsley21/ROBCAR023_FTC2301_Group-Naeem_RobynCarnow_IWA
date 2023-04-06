@@ -42,6 +42,7 @@ console.log(balance)
 
 
 // MY CODE
+
 /*
 REQUIREMENTS
 -The taxable amount should be subtracted from the salary before expenses are calculated
@@ -84,8 +85,9 @@ const rent = {
 
 // You can change below however you want
 
-const taxAsDecimal = tax.913 / 100
-const startingAfterTax = salary * 1 - taxAsDecimal
+const taxAsDecimal = parseInt(tax['913']) / 100
+const startingAfterTax = salary * (1 - taxAsDecimal)
 const type = lodging + size
-const balance = expenses(transport) - expenses(food) - expenses(rent.type) 
-console.log(balance)
+const balance = startingAfterTax - (expenses['transport'] + expenses['food'] + rent['large-apartment'])
+console.log(balance.toFixed(2))
+
