@@ -42,6 +42,15 @@ console.log(balance)
 
 
 // MY CODE
+/*
+REQUIREMENTS
+-The taxable amount should be subtracted from the salary before expenses are calculated
+-The total should be the result of the after-tax amount with all expenses subtracted
+-rent amount (matching key) should = size and lodging
+-log as single number value, two decimals
+*/
+
+
 
 const salary = 4000;
 const lodging = 'apartment'
