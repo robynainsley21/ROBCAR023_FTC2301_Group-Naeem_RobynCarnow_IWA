@@ -206,8 +206,10 @@ const firstHolidayTimestamp = Math.min(
     holidays[5].date.getTime,
     holidays[6].date.getTime,
     holidays[7].date.getTime,
-    holidays[8].date.getTime,
+    holidays[8].date.getTime
 )
+
+
 
 const lastHolidayTimestamp = Math.max(
     holidays[0].date.getTime,
@@ -218,17 +220,21 @@ const lastHolidayTimestamp = Math.max(
     holidays[5].date.getTime,
     holidays[6].date.getTime,
     holidays[7].date.getTime,
-    holidays[8].date.getTime,
+    holidays[8].date.getTime
 )
 
-const firstDay = firstHolidayTimestamp.getDate
+const firstDay = firstHolidayTimestamp
+console.log(firstHolidayTimestamp)
+
 const firstMonth = firstHolidayTimestamp.getMonth
 const lastDay = lastHolidayTimestamp.getDate
 const lastMonth = lastHolidayTimestamp.getMonth
 
-console.log('{firstDay}/{firstMonth}/{currentYear}')
-console.log('{lastDay}/{lastMonth}/{currentYear}')
 
-const randomHoliday = holidays[Math.random() * holidays.index]
+console.log(`${firstDay}/${firstMonth}/${currentYear}`)
+console.log(`${lastDay}/${lastMonth}/${currentYear}`)
+
+const randomHoliday = holidays[Math.random() * holidays.length]
 console.log(randomHoliday)
+
 console.log(randomHoliday.date)
