@@ -41,17 +41,17 @@ console.log(balance)
 */
 
 
+
+
 // MY CODE
 
 /*
-REQUIREMENTS
--The taxable amount should be subtracted from the salary before expenses are calculated
--The total should be the result of the after-tax amount with all expenses subtracted
--rent amount (matching key) should = size and lodging
--log as single number value, two decimals
+why did the original code not work?
+- tax was not properly substituted and value needed to be converted from string to number
+- startingAfterTax variable calculated wrong because BODMAS is applied; added brackets
+- 'type' variable value without proper sytax; added template literal to join 'lodging' and 'size' variable 
+    with a dash in-between
 */
-
-
 
 const salary = 4000;
 const lodging = 'apartment'
@@ -87,7 +87,7 @@ const rent = {
 
 const taxAsDecimal = parseInt(tax['913']) / 100
 const startingAfterTax = salary * (1 - taxAsDecimal)
-const type = lodging + size
-const balance = startingAfterTax - (expenses['transport'] + expenses['food'] + rent['large-apartment'])
+const type = `${size}-${lodging}`
+const balance = startingAfterTax - (expenses['transport'] + expenses['food'] + rent[type])
 console.log(balance.toFixed(2))
 
