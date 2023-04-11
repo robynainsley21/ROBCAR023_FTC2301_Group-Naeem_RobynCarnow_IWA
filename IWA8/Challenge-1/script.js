@@ -49,8 +49,7 @@ console.log(sarah, sarah[address][postal-code])
 why did the original code not work?
 -incorrect syntax for object literals
 -assignment operators used for some key-value pairs instead of colons
--values with dashes were to be made strings by putting them in quotes; without quotes values were not read
-	properly
+-values with dashes were to be made strings by putting them in quotes; without quotes values were not read properly
 */
 
 
