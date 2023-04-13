@@ -223,17 +223,18 @@ const lastHolidayTimestamp = Math.max(
     holidays[8].date.getTime
 )
 
-const firstDay = firstHolidayTimestamp.getDate()
-const firstMonth = firstHolidayTimestamp.getMonth()
-const lastDay = lastHolidayTimestamp.getDate()
-const lastMonth = lastHolidayTimestamp.getMonth()
+const firstDay = firstHolidayTimestamp.getDate
+const firstMonth = firstHolidayTimestamp.getMonth
+const lastDay = lastHolidayTimestamp.getDate
+const lastMonth = lastHolidayTimestamp.getMonth
 
 
 console.log(`${firstDay}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
-const randomNumber = (Math.random() * Obj.keys(holidays))
-console.log(randomNumber)
+const randomNumber =  parseInt(Object.keys(holidays)) /*Obj.keys() return keys of obj as string*/
+const chosenHoliday = (Math.random() * randomNumber)
+console.log(chosenHoliday)
 
 const randomHoliday = holidays[randomNumber]
 console.log(randomHoliday)
