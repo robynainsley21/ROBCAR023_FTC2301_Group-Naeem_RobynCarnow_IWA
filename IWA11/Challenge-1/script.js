@@ -49,23 +49,23 @@ REQUIREMENTS
 */
 
 
-const oneRoot = document.querySelector(order1)
-const oneBiscuits = document(biscuits)
-const oneDonuts = document(donuts)
-const onePancakes = document(pancakes)
-const oneStatus = document(status)
+const oneRoot = document.querySelector('[data-key="order1"]')
+const oneBiscuits = document.querySelector('[data-biscuits="10"]')
+const oneDonuts = document.querySelector('[data-donuts="13"]')
+const onePancakes = document.querySelector('[data-pancakes="0"]')
+const oneStatus = document.querySelector('[data-delivered="false"]')
 
-const twoRoot = document(order2)
-const twoBiscuits = document(biscuits)
-const twoDonuts = document(donuts)
-const twoPancakes = document(pancakes)
-const twoStatus = document(status)
+const twoRoot = document.querySelector('[data-key="order2"]')
+const twoBiscuits = document.querySelector('[data-biscuits="5"]')
+const twoDonuts = document.querySelector('[data-donuts="0"]')
+const twoPancakes = document.querySelector('[data-pancakes="2"]')
+const twoStatus = document('[data-delivered="false"]')
 
-const threeRoot = document(order3)
-const threeBiscuits = document(biscuits)
-const threeDonuts = document(donuts)
-const threePancakes = document(pancakes)
-const threeStatus = document(status)
+const threeRoot = document.querySelector('[data-key="order3"]')
+const threeBiscuits = document.querySelector('[data-biscuits="12"]')
+const threeDonuts = document.querySelector('[data-donuts="11"]')
+const threePancakes = document.querySelector('[data-pancakes="15"]')
+const threeStatus = document.querySelector('[data-delivered="true"]')
 
 oneBiscuits= oneRoot.biscuits
 oneDonuts = oneRoot.donuts
@@ -80,4 +80,4 @@ twoStatus = twoRoot.status ? Delivered : Pending
 threeBiscuits= threeRoot.biscuits
 threeDonuts = threeRoot.donuts
 threePancakes = threeRoot.pancakes
-threeStatus = threeRoot.status ? Delivered : Pending
+threeStatus = threeRoot.data-delivered ? Delivered : Pending

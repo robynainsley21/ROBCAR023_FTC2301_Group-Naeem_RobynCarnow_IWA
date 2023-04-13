@@ -183,8 +183,7 @@ let copied = {
 // }
 
 correctDate = copied.date
-correctDate.hours = 0
-correctDate.minutes = 0
+correctDate.getHours(0, 0);
 console.log(correctDate)
 
 isEarlier = correctDate < holidays[6].date
@@ -242,4 +241,3 @@ const randomHoliday = holidays[randomNumber]
 console.log(randomHoliday)
 
 console.log(randomHoliday.date)
-
