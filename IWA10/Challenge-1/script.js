@@ -200,7 +200,7 @@ if (isEarlier === true) {
 }
 
 const firstHolidayTimestamp = Math.min( /* output has no new Date() object*/
-    holidays[0].date.getTime,
+    new Date(holidays[0].date).getTime(),
     holidays[1].date.getTime,
     holidays[2].date.getTime,
     holidays[3].date.getTime,

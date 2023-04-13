@@ -46,39 +46,38 @@ REQUIREMENTS
 
 /*why is the code not working?
 - incorrect naming convention (variables start with numbers)
-
 */
 
 
-const oneRoot = document(order1),
-const oneBiscuits: document(biscuits),
-const oneDonuts: document(donuts),
-const onePancakes: document(pancakes),
-const oneStatus: document(status)
+const oneRoot = document.querySelector(order1)
+const oneBiscuits = document(biscuits)
+const oneDonuts = document(donuts)
+const onePancakes = document(pancakes)
+const oneStatus = document(status)
 
-const twoRoot = document(order2),
-const twoBiscuits: document(biscuits),
-const twoDonuts: document(donuts),
-const twoPancakes: document(pancakes),
-const twoStatus: document(status)
+const twoRoot = document(order2)
+const twoBiscuits = document(biscuits)
+const twoDonuts = document(donuts)
+const twoPancakes = document(pancakes)
+const twoStatus = document(status)
 
-const threeRoot = document(order3),
-const threeBiscuits: document(biscuits),
-const threeDonuts: document(donuts),
-const threePancakes: document(pancakes),
-const threeStatus: document(status)
+const threeRoot = document(order3)
+const threeBiscuits = document(biscuits)
+const threeDonuts = document(donuts)
+const threePancakes = document(pancakes)
+const threeStatus = document(status)
 
-oneBiscuits= oneRoot.biscuits,
-oneDonuts = oneRoot.donuts,
-onePancakes = oneRoot.pancakes,
+oneBiscuits= oneRoot.biscuits
+oneDonuts = oneRoot.donuts
+onePancakes = oneRoot.pancakes
 oneStatus = oneRoot.status ? Delivered : Pending
 
-twoBiscuits= twoRoot.biscuits,
-twoDonuts = twoRoot.donuts,
-twoPancakes = twoRoot.pancakes,
+twoBiscuits= twoRoot.biscuits
+twoDonuts = twoRoot.donuts
+twoPancakes = twoRoot.pancakes
 twoStatus = twoRoot.status ? Delivered : Pending
 
-threeBiscuits= threeRoot.biscuits,
-threeDonuts = threeRoot.donuts,
-threePancakes = threeRoot.pancakes,
+threeBiscuits= threeRoot.biscuits
+threeDonuts = threeRoot.donuts
+threePancakes = threeRoot.pancakes
 threeStatus = threeRoot.status ? Delivered : Pending
