@@ -181,9 +181,11 @@ let copied = {
 // copied = { 
 //     name: 'X-mas Day' 
 // }
+
 correctDate = copied.date
 correctDate.hours = 0
 correctDate.minutes = 0
+console.log(correctDate)
 
 isEarlier = correctDate < holidays[6].date
 console.log('New date is earlier:', isEarlier)
@@ -240,3 +242,4 @@ const randomHoliday = holidays[randomNumber]
 console.log(randomHoliday)
 
 console.log(randomHoliday.date)
+
