@@ -197,7 +197,7 @@ if (isEarlier === true) {
     console.log(`Date change: ${(holidays['6'].date).toLocaleDateString('en-GB')}`)
 }
 
-const firstHolidayTimestamp = Math.min(
+const firstHolidayTimestamp = Math.min( /* output has no new Date() object*/
     holidays[0].date.getTime,
     holidays[1].date.getTime,
     holidays[2].date.getTime,
