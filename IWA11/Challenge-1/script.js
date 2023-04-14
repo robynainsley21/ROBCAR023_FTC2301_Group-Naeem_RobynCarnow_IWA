@@ -76,9 +76,12 @@ const three = {
 }
 
 
-const orderOneBiscuits = one.onebiscuits
-const orderOneDonuts = one.oneDonuts
-const orderOnePancakes = one.onePancakes
+let orderOneBiscuits = one.oneBiscuits
+let oneLoading = document.querySelector('.biscuits.count')
+
+
+let orderOneDonuts = one.oneDonuts
+let orderOnePancakes = one.onePancakes
 // const orderOneStatus = one.oneStatus? console.log('Delivered : Pending')
 
 const orderTwoBiscuits= twoRoot.biscuits
