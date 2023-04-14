@@ -198,46 +198,58 @@ if (isEarlier === true) {
     console.log(`Date change: ${(holidays['6'].date).toLocaleDateString('en-GB')}`)
 }
 
-const firstHolidayTimestamp = Math.min( /* output has no new Date() object*/
+const firstHolidayTimestamp = Math.min( 
     new Date(holidays[0].date).getTime(),
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime
+    new Date(holidays[1].date).getTime(),
+    new Date(holidays[2].date).getTime(),
+    new Date(holidays[3].date).getTime(),
+    new Date(holidays[4].date).getTime(),
+    new Date(holidays[5].date).getTime(),
+    new Date(holidays[6].date).getTime(),
+    new Date(holidays[7].date).getTime(),
+    new Date(holidays[8].date).getTime()
 )
 
 
 
-const lastHolidayTimestamp = Math.max(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime
+const lastHolidayTimestamp = Math.max( /* getTime() returns amount of time from between the selected date of the object and January 1st, 1970 in milliseconds*/
+    new Date(holidays[0].date).getTime(),
+    new Date(holidays[1].date).getTime(),
+    new Date(holidays[2].date).getTime(),
+    new Date(holidays[3].date).getTime(),
+    new Date(holidays[4].date).getTime(),
+    new Date(holidays[5].date).getTime(),
+    new Date(holidays[6].date).getTime(),
+    new Date(holidays[7].date).getTime(),
+    new Date(holidays[8].date).getTime()
 )
 
-const firstDay = firstHolidayTimestamp.getDate
-const firstMonth = firstHolidayTimestamp.getMonth
-const lastDay = lastHolidayTimestamp.getDate
-const lastMonth = lastHolidayTimestamp.getMonth
+console.log(firstHolidayTimestamp)
+console.log(lastHolidayTimestamp)
+
+const firstDate = new Date(firstHolidayTimestamp) /* new Date() converts milliseconds from firstHolidayTimestamp into an actual date*/
+    console.log(firstDate)
+const firstDay = firstDate.getDate() /*getDate() retrieves the number of the day converted from milliseconds*/
+const firstMonth = (firstDate.getMonth()) + 1 /*counting starts from 0 */
+    console.log(firstMonth)
+
+const lastDate = new Date(lastHolidayTimestamp)
+const lastDay = lastDate.getDate()
+const lastMonth = (lastDate.getMonth()) + 1
 
 
 console.log(`${firstDay}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
-const randomNumber =  parseInt(Object.keys(holidays)) /*Obj.keys() return keys of obj as string*/
-const chosenHoliday = (Math.random() * randomNumber)
-console.log(chosenHoliday)
 
-const randomHoliday = holidays[randomNumber]
-console.log(randomHoliday)
+const randomNumber = Math.round(Math.random() * 9)
+    console.log(randomNumber)
+const randomHoliday = new Date(holidays[randomNumber].date)
 
-console.log(randomHoliday.date)
+const randomDay = randomHoliday.getDate()
+const randomMonth = (randomHoliday.getMonth()) + 1
+
+    console.log(randomDay)
+    console.log(randomMonth)
+
+console.log(`${randomDay}/${randomMonth}/${currentYear}`)
