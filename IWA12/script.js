@@ -122,30 +122,30 @@ const firstReserve = first.querySelector('button.reserve')
 const firstCheckout = first.querySelector('button.checkout')
 const firstCheckin = first.querySelector('button.checkin')
 
-// const secondStatus = selector(status)
-// const secondReserve = selector(reserve)
-// const secondCheckout = selector(checkout)
-// const secondCheckin = selector(checkin)
+const secondStatus = selector(status)
+const secondReserve = selector(reserve)
+const secondCheckout = selector(checkout)
+const secondCheckin = selector(checkin)
 
-// const thirdStatus = selector(status)
-// const thirdReserve = selector(reserve)
-// const thirdCheckout = selector(checkout)
-// const thirdCheckin = selector(checkin)
+const thirdStatus = selector(status)
+const thirdReserve = selector(reserve)
+const thirdCheckout = selector(checkout)
+const thirdCheckin = selector(checkin)
 
-// checkin.0.color = none
-// status.0.style.color = STATUS_MAP.status.color
-// reserve.0 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-// checkout.0 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-// checkin.0 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+checkin.0.color = none
+status.0.style.color = STATUS_MAP.status.color
+reserve.0 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
+checkout.0 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
+checkin.0 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
 
-// checkin.1.color = none
-// status.1.style.color = STATUS_MAP.status.color
-// reserve.1 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-// checkout.1 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-// checkin.1 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+checkin.1.color = none
+status.1.style.color = STATUS_MAP.status.color
+reserve.1 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
+checkout.1 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
+checkin.1 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
 
-// checkin.2.color = none
-// status.2.style.color = STATUS_MAP.status.color
-// reserve.2 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-// checkout.2 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-// checkin.2 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+checkin.2.color = none
+status.2.style.color = STATUS_MAP.status.color
+reserve.2 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
+checkout.2 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
+checkin.2 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
