@@ -1,3 +1,5 @@
+
+
 // TEMPLATE
 
 /*
@@ -84,12 +86,14 @@ let orderOneDonuts = one.oneDonuts
 let orderOnePancakes = one.onePancakes
 // const orderOneStatus = one.oneStatus? console.log('Delivered : Pending')
 
-const orderTwoBiscuits= twoRoot.biscuits
+const orderTwoBiscuits= twoRoot.twoBiscuits
 twoDonuts = twoRoot.donuts
 twoPancakes = twoRoot.pancakes
-twoStatus = twoRoot.status ? Delivered : Pending
+twoStatus = twoRoot.status ? 'Delivered' : 'Pending'
+
+
 
 threeBiscuits= threeRoot.biscuits
 threeDonuts = threeRoot.donuts
 threePancakes = threeRoot.pancakes
-threeStatus = threeRoot.data-delivered ? Delivered : Pending
+threeStatus = threeRoot.data-delivered ? 'Delivered' : 'Pending'
