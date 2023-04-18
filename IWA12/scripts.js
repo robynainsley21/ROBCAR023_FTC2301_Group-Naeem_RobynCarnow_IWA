@@ -120,47 +120,44 @@ REQUIREMENTS
     and then setting their colors to the oject's key-values
 */
 
-const first = {
-    firstRoot: document.getElementById("book1"),
-    firstStatus : firstRoot.querySelector('.status'),  
-    firstReserve : firstRoot.querySelector('.reserve'),  
-    firstCheckout : firstRoot.querySelector('.checkout'),  
-    firstCheckin : firstRoot.querySelector('.checkin')
-}
+
+const firstRoot = document.getElementById('book1')
+const firstStatus = document.querySelector('.status')  
+const firstReserve = document.querySelector('.reserve')  
+const firstCheckout = document.querySelector('.checkout')  
+const firstCheckin = document.querySelector('.checkin')
+
+firstCheckin.style.color = ''
+firstStatus.style.color = STATUS_MAP.overdue.color
+ firstReserveStatus = STATUS_MAP.overdue.canReserve ? 'disabled' : 'enabled'
+ firstCheckoutStatus = STATUS_MAP.overdue.canCheckout ? 'disabled' : 'enabled'
+ firstCheckinStatus = STATUS_MAP.overdue.canCheckIn ? 'enabled' : 'disabled'
+
+
  
-const second = {
-    secondRoot : document.getElementById('book2'),
-    secondStatus : secondRoot.querySelector('.status'),
-    secondReserve : secondRoot.querySelector('.reserve'),
-    secondCheckout : secondRoot.querySelector('.checkout'),
-    secondCheckin : secondRoot.querySelector('.checkin')
-}
+const secondRoot = document.getElementById('book2')
+const secondStatus = document.querySelector('.status')
+const secondReserve = document.querySelector('.reserve')
+const secondCheckout = document.querySelector('.checkout')
+const secondCheckin = document.querySelector('.checkin')
 
-const third = {
-    thirdRoot: document.getElementById('book3'),
-    thirdStatus: thirdRoot.querySelector('.status'),
-    thirdReserve: thirdRoot.querySelector('.reserve'),
-    thirdCheckout: thirdRoot.querySelector('.checkout'),
-    thirdCheckin: thirdRoot.querySelector('.checkin')
-}
+secondCheckin.style.color = ''
+secondStatus.style.color = STATUS_MAP.reserved.color
+const secondReserveStatus = STATUS_MAP.reserved.canReserve ? 'disabled' : 'disabled'
+const secondCheckoutStatus = STATUS_MAP.reserved.canCheckout ? 'enabled' : 'disabled'
+const secondCheckinStatus = STATUS_MAP.reserved.canCheckIn ? 'disabled' : 'disabled'
 
 
 
-first.firstCheckin.style.color = none
-first.firstStatus.style.color = STATUS_MAP.status.color
-first.firstReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-first.firstCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-first.firstCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+const thirdRoot = document.getElementById('book3')
+const thirdStatus = thirdRoot.querySelector('.status')
+const thirdReserve = thirdRoot.querySelector('.reserve')
+const thirdCheckout = thirdRoot.querySelector('.checkout')
+const thirdCheckin = thirdRoot.querySelector('.checkin')
 
-second.secondCheckin.color = none
-second.secondStatus.style.color = STATUS_MAP.status.color
-second.secondReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-second.secondCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-second.secondCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
-
-third.thirdCheckin.color = none
-third.thirdStatus.style.color = STATUS_MAP.status.color
-third.thirdReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-third.thirdCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-third.thirdCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+thirdCheckin.style.color = ''
+thirdStatus.style.color = STATUS_MAP.shelf.color
+const thirdReserveStatus = STATUS_MAP.shelf.canReserve ? 'enabled' : 'disabled'
+const thirdCheckoutStatus = STATUS_MAP.shelf.canCheckout ? 'enabled' : 'disabled'
+const thirdCheckinStatus = STATUS_MAP.shelf.canCheckIn ? 'disabled' : 'enabled'
 
