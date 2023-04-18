@@ -75,6 +75,7 @@ const logCalc = () => {
     const isString = typeof calculated === 'numericalString' 
     
     let calculatedAsNumber
+    
     if (isString){
         calculatedAsNumber = parseInt(calculated)
     } else {
