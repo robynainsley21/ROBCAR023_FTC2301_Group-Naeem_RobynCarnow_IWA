@@ -110,7 +110,6 @@ const STATUS_MAP = {
 }
 
 // Edit below line 
-alert('is this working even')
 
 /*
 REQUIREMENTS
@@ -121,40 +120,47 @@ REQUIREMENTS
     and then setting their colors to the oject's key-values
 */
 
-const first = document.getElementById('book1')
-const firstStatus = first.querySelector('span.status')
-const firstReserve = first.querySelector('button.reserve')
-const firstCheckout = first.querySelector('button.checkout')
-const firstCheckin = first.querySelector('.checkin')
+const first = {
+    firstRoot: document.getElementById("book1"),
+    firstStatus : firstRoot.querySelector('.status'),  
+    firstReserve : firstRoot.querySelector('.reserve'),  
+    firstCheckout : firstRoot.querySelector('.checkout'),  
+    firstCheckin : firstRoot.querySelector('.checkin')
+}
+ 
+const second = {
+    secondRoot : document.getElementById('book2'),
+    secondStatus : secondRoot.querySelector('.status'),
+    secondReserve : secondRoot.querySelector('.reserve'),
+    secondCheckout : secondRoot.querySelector('.checkout'),
+    secondCheckin : secondRoot.querySelector('.checkin')
+}
+
+const third = {
+    thirdRoot: document.getElementById('book3'),
+    thirdStatus: thirdRoot.querySelector('.status'),
+    thirdReserve: thirdRoot.querySelector('.reserve'),
+    thirdCheckout: thirdRoot.querySelector('.checkout'),
+    thirdCheckin: thirdRoot.querySelector('.checkin')
+}
 
 
-const second = document.getElementById('book2')
-const secondStatus = second.querySelector('span.status')
-const secondReserve = second.querySelector('button.reserve')
-const secondCheckout = second.querySelector('button.checkout')
-const secondCheckin = second.querySelector('button.checkin')
 
+first.firstCheckin.style.color = none
+first.firstStatus.style.color = STATUS_MAP.status.color
+first.firstReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
+first.firstCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
+first.firstCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
 
-const third = document.getElementById('book3')
-const thirdStatus = third.querySelector('span.status')
-const thirdReserve = third.querySelector('button.reserve')
-const thirdCheckout = third.querySelector('button.checkout')
-const thirdCheckin = third.querySelector('button.checkin')
+second.secondCheckin.color = none
+second.secondStatus.style.color = STATUS_MAP.status.color
+second.secondReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
+second.secondCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
+second.secondCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
 
-firstCheckin.style.color = ''
-firstStatus.style.color = STATUS_MAP.status.color
-firstReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-firstCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-firstCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+third.thirdCheckin.color = none
+third.thirdStatus.style.color = STATUS_MAP.status.color
+third.thirdReserve = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
+third.thirdCheckout = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
+third.thirdCheckin = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
 
-checkin.1.color = none
-status.1.style.color = STATUS_MAP.status.color
-reserve.1 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-checkout.1 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.1 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
-
-checkin.2.color = none
-status.2.style.color = STATUS_MAP.status.color
-reserve.2 = STATUS_MAP.status.canReserve ? 'enabled' : 'disabled'
-checkout.2 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.2 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'

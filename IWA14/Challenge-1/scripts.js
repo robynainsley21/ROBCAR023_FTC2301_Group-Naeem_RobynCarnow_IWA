@@ -20,13 +20,20 @@ hobby()
 
 // MY CODE
 
+/*
+REQUIREMENTS
+- Do not change the provided values
+- Edit the code so that the message is logged twice
+
+*/
+
 const firstName = 'John';
 const age = 35;
 const myHobby = 'Coding';
 
 const logTwice = () => {
-  console(parameter)
-  console(parameter)
+  console.log(parameter)
+  console.log(parameter)
 }
 
 function hobby () {

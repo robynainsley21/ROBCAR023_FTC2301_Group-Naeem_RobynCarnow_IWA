@@ -51,12 +51,12 @@ REQUIREMENTS
 */
 
 
-const one = {
+const one = {/* the value of data-key is returned */
     oneRoot : document.querySelector('[data-key="order1"]'),
     oneBiscuits : document.querySelector('[data-biscuits="10"]'),
     oneDonuts : document.querySelector('[data-donuts="13"]'),
     onePancakes : document.querySelector('[data-pancakes="0"]'),
-    oneStatus : document.querySelector('[data-delivered="false"]')
+    oneStatus : document.querySelector('[data-delivered="false"]')    
 }
 
 
@@ -78,22 +78,44 @@ const three = {
 }
 
 
-let orderOneBiscuits = one.oneBiscuits
-let oneLoading = document.querySelector('.biscuits.count')
+const oneBiscuitsValue = one.oneRoot.dataset.biscuits //10
+const oneBiscuitsClass = one.oneRoot.getElementsByClassName('count')
+oneBiscuitsClass[0].innerHTML = oneBiscuitsValue
+
+const oneDonutsValue = one.oneRoot.dataset.donuts 
+oneBiscuitsClass[1].innerHTML = oneDonutsValue
+
+const onePancakesValue = one.oneRoot.dataset.pancakes 
+oneBiscuitsClass[2].innerHTML = onePancakesValue
+
+one.oneRoot.querySelector('dd')[3].innerHTML = one.oneStatus.dataset.delivered === 'true' ? 'Delivered' : 'Pending'
 
 
-let orderOneDonuts = one.oneDonuts
-let orderOnePancakes = one.onePancakes
-// const orderOneStatus = one.oneStatus? console.log('Delivered : Pending')
 
-const orderTwoBiscuits= twoRoot.twoBiscuits
-twoDonuts = twoRoot.donuts
-twoPancakes = twoRoot.pancakes
-twoStatus = twoRoot.status ? 'Delivered' : 'Pending'
+const twoBiscuitsValue = two.twoRoot.dataset.biscuits
+const twoBiscuitsClass = two.twoRoot.getElementsByClassName('count')
+twoBiscuitsClass[0].innerHTML = twoBiscuitsValue
+
+const twoDonutsValue =  two.twoRoot.dataset.donuts
+twoBiscuitsClass[1].innerHTML = twoDonutsValue
+
+const twoPancakesValue = two.twoRoot.dataset.pancakes 
+twoBiscuitsClass[2].innerHTML = twoPancakesValue
+
+two.twoRoot.getElementsByClassName('status')[0].innerHTML = two.twoStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
 
 
 
-threeBiscuits= threeRoot.biscuits
-threeDonuts = threeRoot.donuts
-threePancakes = threeRoot.pancakes
-threeStatus = threeRoot.data-delivered ? 'Delivered' : 'Pending'
+const threeBiscuitsValue = three.threeRoot.dataset.biscuits
+const threeBiscuitsClass = three.threeRoot.getElementsByClassName('count')
+threeBiscuitsClass[0].innerHTML = threeBiscuitsValue
+
+const threeDonutsValue =  three.threeRoot.dataset.donuts
+threeBiscuitsClass[1].innerHTML = threeDonutsValue
+
+const threePancakesValue = three.threeRoot.dataset.pancakes 
+threeBiscuitsClass[2].innerHTML = threePancakesValue
+
+three.threeRoot.getElementsByClassName('status')[0].innerHTML = three.threeStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
+console.log(one.oneStatus.dataset.delivered);
+
