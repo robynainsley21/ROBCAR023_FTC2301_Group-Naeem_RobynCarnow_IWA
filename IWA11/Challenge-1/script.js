@@ -88,7 +88,7 @@ oneBiscuitsClass[1].innerHTML = oneDonutsValue
 const onePancakesValue = one.oneRoot.dataset.pancakes 
 oneBiscuitsClass[2].innerHTML = onePancakesValue
 
-one.oneRoot.querySelector('dd')[3].innerHTML = one.oneStatus.dataset.delivered === 'true' ? 'Delivered' : 'Pending'
+one.oneRoot.getElementsByClassName('status')[0].innerHTML = one.oneStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
 
 
 
@@ -102,7 +102,7 @@ twoBiscuitsClass[1].innerHTML = twoDonutsValue
 const twoPancakesValue = two.twoRoot.dataset.pancakes 
 twoBiscuitsClass[2].innerHTML = twoPancakesValue
 
-two.twoRoot.getElementsByClassName('status')[0].innerHTML = two.twoStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
+two.twoRoot.getElementsByClassName('status')[1].innerHTML = two.twoStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
 
 
 
@@ -116,6 +116,5 @@ threeBiscuitsClass[1].innerHTML = threeDonutsValue
 const threePancakesValue = three.threeRoot.dataset.pancakes 
 threeBiscuitsClass[2].innerHTML = threePancakesValue
 
-three.threeRoot.getElementsByClassName('status')[0].innerHTML = three.threeStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
-console.log(one.oneStatus.dataset.delivered);
+three.threeRoot.getElementsByClassName('status')[2].innerHTML = three.threeStatus.getAttribute('[data-delivered]') === 'true' ? 'Delivered' : 'Pending'
 

@@ -21,9 +21,9 @@ hobby()
 // MY CODE
 
 /*
-REQUIREMENTS
-- Do not change the provided values
-- Edit the code so that the message is logged twice
+why did the original code not work?
+- there was no input in the logtwice function, which replaces its value with the values in the callback in the 
+  hobby function i.e. what is put in the () of a callback is the value that gets processed in another code block
 
 */
 
@@ -31,7 +31,7 @@ const firstName = 'John';
 const age = 35;
 const myHobby = 'Coding';
 
-const logTwice = () => {
+const logTwice = (parameter) => {
   console.log(parameter)
   console.log(parameter)
 }
