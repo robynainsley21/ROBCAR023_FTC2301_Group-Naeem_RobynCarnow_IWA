@@ -43,9 +43,19 @@ example2.calculate()
 
 // MY CODE
 
-function add = a, b => { a + b }
+/*
+CONCERNS
+-dont think it should return 'this' in internal()
 
-function multiply = a, b => { a - b }
+*/
+
+const add = (a, b) => {
+	return a + b 
+}
+
+const multiply = (a, b) => { 
+	return a - b 
+}
 
 function internal() {
 	const added = this.add(this.a, this.b)

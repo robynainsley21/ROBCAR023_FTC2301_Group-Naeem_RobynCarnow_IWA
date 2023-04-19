@@ -122,32 +122,16 @@ REQUIREMENTS
 
 
 const firstRoot = document.getElementById('book1')
-const firstStatus = document.querySelector('.status')  
-const firstReserve = document.querySelector('.reserve')  
-const firstCheckout = document.querySelector('.checkout')  
-const firstCheckin = document.querySelector('.checkin')
-
-firstCheckin.style.color = ''
-firstStatus.style.color = STATUS_MAP.overdue.color
- firstReserveStatus = STATUS_MAP.overdue.canReserve ? 'disabled' : 'enabled'
- firstCheckoutStatus = STATUS_MAP.overdue.canCheckout ? 'disabled' : 'enabled'
- firstCheckinStatus = STATUS_MAP.overdue.canCheckIn ? 'enabled' : 'disabled'
-
-
+const firstStatus = firstRoot.getElementsByClassName('status')[0]
+let firstReserve = firstRoot.getElementsByClassName('reserve')[0]
+const firstCheckout = firstRoot.getElementsByClassName('checkout')[0] 
+const firstCheckin = firstRoot.getElementsByClassName('checkin')[0]
  
 const secondRoot = document.getElementById('book2')
-const secondStatus = document.querySelector('.status')
-const secondReserve = document.querySelector('.reserve')
-const secondCheckout = document.querySelector('.checkout')
-const secondCheckin = document.querySelector('.checkin')
-
-secondCheckin.style.color = ''
-secondStatus.style.color = STATUS_MAP.reserved.color
-const secondReserveStatus = STATUS_MAP.reserved.canReserve ? 'disabled' : 'disabled'
-const secondCheckoutStatus = STATUS_MAP.reserved.canCheckout ? 'enabled' : 'disabled'
-const secondCheckinStatus = STATUS_MAP.reserved.canCheckIn ? 'disabled' : 'disabled'
-
-
+const secondStatus = secondRoot.getElementsByClassName('status')[0]
+const secondReserve = secondRoot.getElementsByClassName('reserve')[0]
+const secondCheckout = secondRoot.getElementsByClassName('checkout')[0]
+const secondCheckin = secondRoot.getElementsByClassName('checkin')[0]
 
 const thirdRoot = document.getElementById('book3')
 const thirdStatus = thirdRoot.querySelector('.status')
@@ -155,9 +139,24 @@ const thirdReserve = thirdRoot.querySelector('.reserve')
 const thirdCheckout = thirdRoot.querySelector('.checkout')
 const thirdCheckin = thirdRoot.querySelector('.checkin')
 
+
+
+firstCheckin.style.color = ''
+firstStatus.style.color = STATUS_MAP.overdue.color
+// firstReserve = STATUS_MAP.overdue.canReserve ? 'enabled' : 'disabled'
+// firstCheckout = STATUS_MAP.overdue.canCheckout ? 'enabled' : 'disabled'
+// firstCheckin = STATUS_MAP.overdue.canCheckIn === 'true' ? 'enabled' : 'disabled'
+
+secondCheckin.style.color = ''
+secondStatus.style.color = STATUS_MAP.reserved.color
+// console.log(secondStatus.style.color)
+// const secondReserveStatus = STATUS_MAP.reserved.canReserve ? 'enabled' : 'disabled'
+// const secondCheckoutStatus = STATUS_MAP.reserved.canCheckout ? 'enabled' : 'disabled'
+// const secondCheckinStatus = STATUS_MAP.reserved.canCheckIn ? 'enabled' : 'disabled'
+
 thirdCheckin.style.color = ''
 thirdStatus.style.color = STATUS_MAP.shelf.color
-const thirdReserveStatus = STATUS_MAP.shelf.canReserve ? 'enabled' : 'disabled'
-const thirdCheckoutStatus = STATUS_MAP.shelf.canCheckout ? 'enabled' : 'disabled'
-const thirdCheckinStatus = STATUS_MAP.shelf.canCheckIn ? 'disabled' : 'enabled'
+// const thirdReserveStatus = STATUS_MAP.shelf.canReserve ? 'enabled' : 'disabled'
+// const thirdCheckoutStatus = STATUS_MAP.shelf.canCheckout ? 'enabled' : 'disabled'
+// const thirdCheckinStatus = STATUS_MAP.shelf.canCheckIn ? 'enabled' : 'disabled'
 

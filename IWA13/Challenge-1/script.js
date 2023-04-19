@@ -72,12 +72,13 @@ let calculated = '1'
 
 
 const logCalc = () => { 
-    const isString = typeof calculated === 'numericalString' 
+    const isString = typeof calculated 
     
     let calculatedAsNumber
     
     if (isString){
         calculatedAsNumber = parseInt(calculated)
+        
     } else {
         calculatedAsNumber = calculated
     }
@@ -90,14 +91,14 @@ const logCalc = () => {
 
 const calcUser = () => {
   logCalc()
-  if (calculated > 2) user = 'John'
-  if (calculated > 2) state = 'requesting'
-  if (calculated > 3) state = 'idle'
+  if (calculated <= 2) user = 'John'
+  if (calculated >= 2) state = 'requesting'
+  if (calculated >= 3) state = 'idle'
 }
 
 const checkUser = () => {
-	if (user && state === 'requesting') {
-		console.log(`User: ${user} (${calculated})`)
+	if (user === 'John' && state === 'requesting' || state === 'idle') {
+		console.log(`User: ${user} (${calculated}) State: ${state}`)
 	}
 }
 
