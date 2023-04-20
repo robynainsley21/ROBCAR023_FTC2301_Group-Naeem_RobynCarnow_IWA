@@ -44,8 +44,8 @@ example2.calculate()
 // MY CODE
 
 /*
-CONCERNS
--dont think it should return 'this' in internal()
+why did the original code not work?
+- first two functions were meant to either be declared or written as expressions; changed them to expressions
 
 */
 
@@ -58,9 +58,9 @@ const multiply = (a, b) => {
 }
 
 function internal() {
-	const added = this.add(this.a, this.b)
-	this.multiply(this.a, this.b)
-	return this
+	const added = this.add(this.internal.a, this.internal.b)
+	const multiplied = this.multiply(this.internal.a, this.internal.b)
+	return added, multiplied
 }
 
 // Not allowed to change below this
