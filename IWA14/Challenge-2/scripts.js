@@ -47,6 +47,7 @@ example2.calculate()
 why did the original code not work?
 - first two functions were meant to either be declared or written as expressions; changed them to expressions
 
+-main problem lies with internal function
 */
 
 const add = (a, b) => {
@@ -54,13 +55,13 @@ const add = (a, b) => {
 }
 
 const multiply = (a, b) => { 
-	return a - b 
+	return a * b 
 }
 
 function internal() {
 	const added = this.add(this.internal.a, this.internal.b)
-	const multiplied = this.multiply(this.internal.a, this.internal.b)
-	return added, multiplied
+	const multiplied = this.multiply(added, this.internal.c)
+	console.log(multiplied) 
 }
 
 // Not allowed to change below this
