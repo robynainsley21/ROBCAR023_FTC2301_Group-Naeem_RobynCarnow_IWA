@@ -101,15 +101,13 @@ const result = []
 
 
 const extractBiggest = () => {
-	if (first[0] > second[0]) {
-		return first
+	if (first[0] > second[0] && third[0] > 1) {
+		return result.push(first, second, third)
 	}
 
-	if (third[0] > 1) {
-		return second
-	}
 	
-	return third
+	
+	
 }
 
 // Only edit above
