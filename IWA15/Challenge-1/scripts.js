@@ -78,30 +78,43 @@ const data = {
 
 // Only edit below
 
-const first = (data.lists[0][1]).reverse()
-    console.log(first)
-const second = (data.lists[1][1]).reverse() 
-    console.log(second)
-const third = (data.lists[2][1] ).reverse()
-    console.log(third)
+// const { first = 1 } = data.first || {}
+// const { second = 1 } = data.second || {}
+// const { third = 1 } = data.third || {}
+
+const first = data.lists[0][1]
+	console.log(first)
+	
+const second = data.lists[1][1]
+	console.log(second)
+
+const third = data.lists[2][1]
+	console.log(third)
 
 
 const result = []
 
 const extractBiggest = () => {
-	if (first[first.length - 1] > second[second.length - 1] ) {
-		return result.push(first)
+	if (first[first.length - 1] > second[second.length - 1]) {
+		const firstLastValue = first.pop(first.length - 1)
+		return result.push(firstLastValue)
 	}
 
-	if (third[third.length - 1] < 1) {
-		return result.push(second)
+	if (second[second.length - 1] > third[third.length - 1]) {
+		const secondLastValue = second.pop(second.length - 1)
+		return result.push(secondLastValue)
 	}
 	
-	return result.push(third)
+	// if (third[third.length - 1] > first[first.length - 1]){
+	// 	const thirdLastValue = third.pop(third.length - 1)
+	// 	return result.push(thirdLastValue)
+	// }
+	 
 }
 
-
-
+console.log(first[first.length - 1] > second[second.length - 1])
+console.log(second[second.length - 1] > third[third.length - 1])
+// console.log(third[third.length - 1] > first[first.length - 1])
 
 // Only edit above
 
