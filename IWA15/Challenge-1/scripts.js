@@ -58,6 +58,7 @@ console.log(result)
 /*
 why did the original code not work?
 - arrays were not being called properly
+- conditional to be edited with changed variables
 
 REQUIREMENTS
 - Edit only the code between the two comment lines
@@ -77,38 +78,30 @@ const data = {
 
 // Only edit below
 
-const first = data.lists[0][1]
+const first = (data.lists[0][1]).reverse()
     console.log(first)
-const second = data.lists[1][1] 
+const second = (data.lists[1][1]).reverse() 
     console.log(second)
-const third = data.lists[2][1] 
+const third = (data.lists[2][1] ).reverse()
     console.log(third)
 
 
 const result = []
 
-// const extractBiggest = () => {
-// 	if (first[0] > second[0] ) {
-// 		return first
-// 	}
-
-// 	if (third[0] > second[0]) {
-// 		return second
-// 	}
-	
-// 	return third
-// }
-
-
 const extractBiggest = () => {
-	if (first[0] > second[0] && third[0] > 1) {
-		return result.push(first, second, third)
+	if (first[first.length - 1] > second[second.length - 1] ) {
+		return result.push(first)
 	}
 
+	if (third[third.length - 1] < 1) {
+		return result.push(second)
+	}
 	
-	
-	
+	return result.push(third)
 }
+
+
+
 
 // Only edit above
 

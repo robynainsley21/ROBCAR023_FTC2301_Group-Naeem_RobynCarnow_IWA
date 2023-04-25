@@ -118,7 +118,8 @@
 
 /*
 why did the original code not work?
--
+- uninitialised variables (first, second, third, fourth)
+- no callback function at the end code
 
 */
 
@@ -191,45 +192,44 @@ const data = {
   
   // Only edit below this comment
   
-  const createHtml = (athlete) => {
+const createHtml = (athlete) => {
     firstName, surname, id, races = athlete
-    [date], [time] = races.reverse()
+    [date], [time] = races.reverse() /* find true method for reverse() */
   
-    const fragment = document.createDocumentFragment();
+    const fragment = document.createDocumentFragment(); /* creates a new document */
+        console.log(fragment)
   
-    title = document.createElement(h2);
-    title= id;
-    fragment.appendChild(title);
-  
-    const list = document.createElement(dl);
-  
+    const title = document.createElement(h2); /* creates element specified */
+    title.innerHTML = data.data ;
+    fragment.appendChild(title); /* returns copy of node */
+      
     const day = date.getDate();
     const month = MONTHS[date.month];
     const year = date.year;
+
+    const first = tobechanged
   
     first, second, third, fourth = timeAsArray;
-    total = first + second + third + fourth;
+    const total = first + second + third + fourth;
   
     const hours = total / 60;
     const minutes = total / hours / 60;
   
-    list.innerHTML = /* html */ `
-    //   <dt>Athlete</dt>
-    //   <dd>${firstName surname}</dd>
+
+    // list.innerHTML =  putsomethinghere /* html */   
   
-    //   <dt>Total Races</dt>
-    //   <dd>${races}</dd>
-  
-    //   <dt>Event Date (Latest)</dt>
-    //   <dd>${day month year}</dd>
-  
-    //   <dt>Total Time (Latest)</dt>
-    //   <dd>${hours.padStart(2, 0) minutes}</dd>
-    // `;
-  
+    const nwabisaId = document.getElementBy('[data-athlete="NM372"]')
+        console.log(nwabisaId)
+    // const nwabisa = ''
+
+
+
     fragment.appendChild(list);
-  }
+}
   
   [NM372], [SV782] = data
-  document.querySelector(NM372).appendChild(createHtml(NM372));
-  document.querySelector(SV782).appendChild(createHtml(SV782));
+const nwabisa = document.querySelector(NM372).appendChild(createHtml(NM372));
+const schalk = document.querySelector(SV782).appendChild(createHtml(SV782));
+
+createHtml(nwabisa)
+createHtml(schalk)
