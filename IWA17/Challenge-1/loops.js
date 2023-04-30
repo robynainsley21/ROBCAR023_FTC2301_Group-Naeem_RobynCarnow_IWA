@@ -1,4 +1,4 @@
-alert('yes')
+
 const MONTHS = [
     'January',
     'February',
@@ -21,31 +21,32 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 const createArray = (length) => {
     const result = []
 
-    for (0, i, length) {
-        result
+    for (let i = 0; i < length; i++) {
+        return result.push(i)
     }
+
 }
 
 const createData = () => {
-    const current = new Date
+    const current = new Date() //missing ()        
     current.setDate(1)
 
-    startDay = current.day
-    daysInMonth = getDaysInMonth(current)
+    const startDay = current.getDay()
+    const daysInMonth = getDaysInMonth(current)
 
-    weeks = createArray(5)
-    days = createArray(7)
-    value = null
+    const weeks = createArray(5)
+    const days = createArray(7)
+    let value = [] //changed to an empty array since values are being pushed into it as an array
 
-    for (weekIndex in weeks) {
+    for (let weekIndex in weeks) {
         value = [{
             week: weekIndex + 1,
             days: []
         }]
 
-        for (dayIndex in days) {
+        for (let dayIndex in days) {
             value = dayIndex - startDay
-            isValid = day > 0 && day <= daysInMonth
+            const isValid = days > 0 && days <= daysInMonth
 
             result[weekIndex].days = [{
                 dayOfWeek: dayIndex + 1,
@@ -63,16 +64,17 @@ const addCell = (existing, classString, value) => {
 
         ${existing}
     `
+    return result
 }
 
 const createHtml = (data) => {
     let result = ''
 
-    for (week, days in data) {
+    for (const [week, days] of  data) {
         let inner = ""
         addCell(inner, 'table__cell table__cell_sidebar', 'Week {week}')
     
-        for (dayOfWeek, value in days) {
+        for (const dayOfWeek, value in days) {
             classString = table__cell
 						isToday = new Date === value
             isWeekend = dayOfWeek = 1 && dayOfWeek == 7
@@ -80,7 +82,7 @@ const createHtml = (data) => {
 
             let classString = 'table__cell'
 
-						if (isToday) classString = `${classString} table__cell_today`
+			if (isToday) classString = `${classString} table__cell_today`
             if (isWeekend) classString === '{classString} table__cell_weekend'
             if (isAlternate) classString === '{classString} table__cell_alternate'
             addCell(inner, classString, value)
