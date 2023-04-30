@@ -193,30 +193,29 @@ const data = {
 
 const createHtml = (athlete) => {
   //should i make variables for these?
-  // athlete.firstName, athlete.surname, athlete.id, athlete['races'] = athlete
-  // [athlete[races][date]], [athlete[races][time]] = races.reverse()
+  const {firstName, surname, id, races} = athlete
+  [date], [time] = races.reverse()
 
 
   const fragment = document.createDocumentFragment(); //not part of the main DOM tree; 
   //creates doc fragment, appends elements to that fragment and then appends the doc to the DOM tree
   //the doc frag is replaced by all its children
-
   const title = document.createElement('h2');
   title.innerHTML = athlete.id;
   fragment.appendChild(title); //appends element (title) as the last child of another (fragment)
 
 
-  // const list = document.createElement('dl');
+  const list = document.createElement('dl');
 
-  // const day = date.getDate();
-  // const month = MONTHS[date.month];
-  // const year = date.year;
+  const day = data['response']['data'][athlete][races.length - 1].date.getDate();
+  const month = MONTHS[date['data'].athlete['races'].getMonth()];
+  const year = date.year;
 
-  // first, second, third, fourth = timeAsArray;
-  // total = first + second + third + fourth;
+  first, second, third, fourth = timeAsArray;
+  const total = first + second + third + fourth;
 
-  // const hours = total / 60;
-  // const minutes = total / hours / 60;
+  const hours = total / 60;
+  const minutes = total / hours / 60;
 
 
   //   list.innerHTML = /* html */ `
@@ -233,12 +232,18 @@ const createHtml = (athlete) => {
   //   <dd>${hours.padStart(2, 0) minutes}</dd>
   // `;
 
-  // fragment.appendChild(list);
+  fragment.appendChild(list);
+
+    return fragment
+    console.log(fragment)
+    console.log(data['response']['data'][athlete][races.length - 1].date)
 }
 
 createHtml(data['response']['data']['NM372'])
-console.log(data['response']['data']['NM372'])
+createHtml(data['response']['data']['SV782'])
 
 
-document.querySelector('NM372').appendChild(createHtml('NM372'));
-document.querySelector('SV782').appendChild(createHtml('SV782'));
+
+
+document.querySelector('[data-athlete="NM372"]').appendChild(createHtml('NM372'));
+document.querySelector('[data-athlete="SV782"]').appendChild(createHtml('SV782'));
