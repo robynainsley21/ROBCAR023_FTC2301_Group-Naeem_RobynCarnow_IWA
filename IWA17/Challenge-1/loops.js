@@ -22,9 +22,9 @@ const createArray = (length) => {
     const result = []
 
     for (let i = 0; i < length; i++) {
-        return result.push(i)
+        result.push(i)
     }
-
+    return result
 }
 
 const createData = () => {
@@ -50,7 +50,7 @@ const createData = () => {
 
             result[weekIndex].days = [{
                 dayOfWeek: dayIndex + 1,
-                value: isValid && day,
+                value: isValid && days,
             }]
         }
     }
