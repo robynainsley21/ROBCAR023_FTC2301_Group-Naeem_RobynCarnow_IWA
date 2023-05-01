@@ -192,58 +192,56 @@ const data = {
 // Only edit below this comment
 
 const createHtml = (athlete) => {
-  //should i make variables for these?
-  const {firstName, surname, id, races} = athlete
+  const firstName = athlete['firstName']
+  const surname = athlete.surname
+  const id = athlete.id
+  const races = athlete.races
   [date], [time] = races.reverse()
 
+  const fragment = document.createDocumentFragment();
 
-  const fragment = document.createDocumentFragment(); //not part of the main DOM tree; 
-  //creates doc fragment, appends elements to that fragment and then appends the doc to the DOM tree
-  //the doc frag is replaced by all its children
   const title = document.createElement('h2');
-  title.innerHTML = athlete.id;
-  fragment.appendChild(title); //appends element (title) as the last child of another (fragment)
-
+  title.innerHTML = id;
+  fragment.appendChild(title);
 
   const list = document.createElement('dl');
 
-  const day = data['response']['data'][athlete][races.length - 1].date.getDate();
-  const month = MONTHS[date['data'].athlete['races'].getMonth()];
+  const day = date.getDate();
+  const month = MONTHS[date.month];
   const year = date.year;
 
-  first, second, third, fourth = timeAsArray;
+  const [first, second, third, fourth] = timeAsArray;
   const total = first + second + third + fourth;
 
   const hours = total / 60;
   const minutes = total / hours / 60;
 
+  list.innerHTML = /* html */ `
+    <dt>Athlete</dt>
+    <dd>${firstName} ${surname}</dd>
 
-  //   list.innerHTML = /* html */ `
-  //   <dt>Athlete</dt>
-  //   <dd>${firstName surname}</dd>
+    <dt>Total Races</dt>
+    <dd>${races.length}</dd>         //returned whole array; added .length to return number of races
 
-  //   <dt>Total Races</dt>
-  //   <dd>${races}</dd>
+    <dt>Event Date (Latest)</dt>
+    <dd>${day} ${month} ${year}</dd>
 
-  //   <dt>Event Date (Latest)</dt>
-  //   <dd>${day month year}</dd>
-
-  //   <dt>Total Time (Latest)</dt>
-  //   <dd>${hours.padStart(2, 0) minutes}</dd>
-  // `;
+    <dt>Total Time (Latest)</dt>
+    <dd>${hours.padStart(2, 0)} ${minutes}</dd>
+  `;
 
   fragment.appendChild(list);
 
-    return fragment
-    console.log(fragment)
-    console.log(data['response']['data'][athlete][races.length - 1].date)
+  return fragment //nothing is being returned
 }
 
-createHtml(data['response']['data']['NM372'])
-createHtml(data['response']['data']['SV782'])
+const data1 = document.querySelector('[data-athlete="NM372"]')
+data1.appendChild(createHtml('NM372')) //appendChild appends an item to a list; separated code lines for easier editor consumption??
+
+const data2 = document.querySelector('[data-athlete="SV782"]')
+data2.appendChild(createHtml('SV782'));
 
 
 
-
-document.querySelector('[data-athlete="NM372"]').appendChild(createHtml('NM372'));
-document.querySelector('[data-athlete="SV782"]').appendChild(createHtml('SV782'));
+//   CODE TESTING
+console.log(data1)
