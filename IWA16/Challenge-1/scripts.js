@@ -196,7 +196,7 @@ const createHtml = (athlete) => {
   const surname = athlete.surname
   const id = athlete.id
   const races = athlete.races
-  [date], [time] = races.reverse()  //reverses array contents
+  races.reverse()  //reverses races array contents
 
   const fragment = document.createDocumentFragment();
 
@@ -209,7 +209,7 @@ const createHtml = (athlete) => {
   const month = MONTHS[date.month];
   const year = date.year;
 
-  const [first, second, third, fourth] = time;  //undeclared
+  const [first, second, third, fourth] = time;  //undeclared; puts amount of races in array
   const total = first + second + third + fourth;
 
   const hours = total / 60;
@@ -222,7 +222,7 @@ const createHtml = (athlete) => {
     <dd>${firstName} ${surname}</dd>
 
     <dt>Total Races</dt>
-    <dd>${races.length}</dd>         //returned whole array; added .length to return number of races
+    <dd>${races.length}</dd>         //added .length to return number of races instead od entire array
 
     <dt>Event Date (Latest)</dt>
     <dd>${day} ${month} ${year}</dd>
