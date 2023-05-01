@@ -196,7 +196,7 @@ const createHtml = (athlete) => {
   const surname = athlete.surname
   const id = athlete.id
   const races = athlete.races
-  [date], [time] = races.reverse()
+  [date], [time] = races.reverse()  //reverses array contents
 
   const fragment = document.createDocumentFragment();
 
@@ -204,18 +204,19 @@ const createHtml = (athlete) => {
   title.innerHTML = id;
   fragment.appendChild(title);
 
-  const list = document.createElement('dl');
 
   const day = date.getDate();
   const month = MONTHS[date.month];
   const year = date.year;
 
-  const [first, second, third, fourth] = timeAsArray;
+  const [first, second, third, fourth] = time;  //undeclared
   const total = first + second + third + fourth;
 
   const hours = total / 60;
   const minutes = total / hours / 60;
 
+
+  const list = document.createElement('dl');
   list.innerHTML = /* html */ `
     <dt>Athlete</dt>
     <dd>${firstName} ${surname}</dd>
