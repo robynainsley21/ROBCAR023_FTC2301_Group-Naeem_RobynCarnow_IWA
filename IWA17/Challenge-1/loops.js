@@ -24,37 +24,40 @@ const createArray = (length) => {
     for (let i = 0; i < length; i++) {
         result.push(i)
     }
-    return result
+   return result
 }
 
 const createData = () => {
     const current = new Date() //missing ()        
-    current.setDate(1)
+    current.setDate(1) //sets the day of the month of a date
 
     const startDay = current.getDay()
     const daysInMonth = getDaysInMonth(current)
 
-    const weeks = createArray(5)
+    const weeks = createArray(6)//creates an array of amount of weeks in month; changed from 5 to 6 to accomodate months that start on a sunday
     const days = createArray(7)
-    let value = [] //changed to an empty array since values are being pushed into it as an array
+    let value = [] //changed to an empty array since values are meant to be pushed into it
+    //what does value actually do??
 
-    for (let weekIndex in weeks) {
-        value = [{
-            week: weekIndex + 1,
-            days: []
-        }]
+    for (let weekIndex of weeks) { /* changed from for in to for of because for of operates on values sourced from an iterable object (in this case, an array) */
+        value.push((parseInt(weekIndex) + 1), days) //editor indicated that weekIndex was to be returned as a string
+        // = [
+        //     week: weekIndex + 1,
+        //     days: [],
+        // ]
 
-        for (let dayIndex in days) {
-            value = dayIndex - startDay
+        for (let dayIndex of days) {
+            value = dayIndex - startDay //amount of days in array subtracts amount of days in current month; what does that tell you?
             const isValid = days > 0 && days <= daysInMonth
 
-            result[weekIndex].days = [{
+            result[dayIndex].days = {
                 dayOfWeek: dayIndex + 1,
                 value: isValid && days,
-            }]
+            }
         }
     }
 }
+
 
 const addCell = (existing, classString, value) => {
     const result = /* html */ `
@@ -68,30 +71,30 @@ const addCell = (existing, classString, value) => {
 }
 
 const createHtml = (data) => {
-    let result = ''
+    const result = ''
 
     for (const [week, days] of  data) {
         let inner = ""
         addCell(inner, 'table__cell table__cell_sidebar', 'Week {week}')
     
-        for (const dayOfWeek, value in days) {
-            classString = table__cell
-						isToday = new Date === value
-            isWeekend = dayOfWeek = 1 && dayOfWeek == 7
-            isAlternate = week / 2
+        for (const [dayOfWeek, value] in days) {
+            let classString = document.getElementsByClassName('table__cell')
+            
+		    const isToday = new Date() === value
+            const isWeekend = dayOfWeek === 1 || dayOfWeek === 7
+            const isAlternate = week / 2
 
-            let classString = 'table__cell'
+           
 
 			if (isToday) classString = `${classString} table__cell_today`
-            if (isWeekend) classString === '{classString} table__cell_weekend'
-            if (isAlternate) classString === '{classString} table__cell_alternate'
+            if (isWeekend) classString = `${classString} table__cell_weekend`
+            if (isAlternate) classString = `${classString} table__cell_alternate`
             addCell(inner, classString, value)
         }
 
         result = `<tr>${inner}</tr>`
     }
 }
-
 // Only edit above
 
 const current = new Date()
