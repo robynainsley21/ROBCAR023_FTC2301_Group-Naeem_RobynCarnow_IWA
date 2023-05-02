@@ -192,10 +192,11 @@ const data = {
 // Only edit below this comment
 
 const createHtml = (athlete) => {
+  
   const firstName = data['response']['data'][athlete]['firstName']
   const surname = data['response']['data'][athlete].surname
   const id = data['response']['data'][athlete]['id']
-  const races = data['response']['data'][athlete]['races'] //returns actual arrays
+  const races = data['response']['data'][athlete]['races'] //returns actual arrays not values
 
   races.reverse()  //reverses races array contents
   console.log(races);
@@ -206,17 +207,19 @@ const createHtml = (athlete) => {
   title.innerHTML = id;
   fragment.appendChild(title);
 
-
-  const day = new Date(races[0]['date']).getDay();  //not a date object to be using getDay on?
-  console.log(day);
-
-
-  // const month = MONTHS[date.month];
-
-
-  // const year = date.getFullYear();
+  const date = new Date(races[0]['date'])
+  const day = date.getDay();  //outputs 5(day of the week, not the date); meant to output 2
+  const month = MONTHS[date.getMonth()]; //retrieves number of month from MONTH array
+  const year = date.getFullYear();
 
   // const { first, second, third, fourth } = time;  //undeclared; puts amount of races in array
+  const first = races[0][1] //races is now reversed so race times are second (are races reversed??)
+  const second = races[1][1]
+  const third = races[2][1]
+  const fourth = races[3][1]
+
+
+  console.log( first, second, third, fourth )
   // const total = first + second + third + fourth;
 
   // const hours = total / 60;
