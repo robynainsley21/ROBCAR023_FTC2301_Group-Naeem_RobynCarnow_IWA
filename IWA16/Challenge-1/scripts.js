@@ -232,7 +232,7 @@ const createHtml = (athlete) => {
 
   fragment.appendChild(list);
 
-  return fragment //nothing is being returned
+  return fragment 
 }
 
 const data1 = document.querySelector('[data-athlete="NM372"]')
@@ -243,7 +243,3 @@ data2.appendChild(createHtml(data['response']['data']['SV782']));
 
 
 
-// //   CODE TESTING
- 
-// createHtml(data['response']['data']['NM372'])
-// createHtml(data['response']['data']['SV782'])

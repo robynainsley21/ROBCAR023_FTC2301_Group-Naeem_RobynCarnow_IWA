@@ -27,30 +27,37 @@ const createArray = (length) => {
    return result
 }
 
+
 const createData = () => {
-    const current = new Date() //missing ()        
-    current.setDate(1) //sets the day of the month of a date
+    const current = new Date()
+    current.setDate(1)
+
+    console.log(current)
 
     const startDay = current.getDay()
     const daysInMonth = getDaysInMonth(current)
 
-    const weeks = createArray(6)//creates an array of amount of weeks in month; changed from 5 to 6 to accomodate months that start on a sunday
+    const weeks = createArray(5)
     const days = createArray(7)
-    let value = [] //changed to an empty array since values are meant to be pushed into it
-    //what does value actually do??
 
-    for (let weekIndex of weeks) { /* changed from for in to for of because for of operates on values sourced from an iterable object (in this case, an array) */
-        value.push((parseInt(weekIndex) + 1), days) //editor indicated that weekIndex was to be returned as a string
-        // = [
-        //     week: weekIndex + 1,
-        //     days: [],
-        // ]
+    console.log(days)
+    console.log(daysInMonth)
 
-        for (let dayIndex of days) {
-            value = dayIndex - startDay //amount of days in array subtracts amount of days in current month; what does that tell you?
+    let value = null
+
+    for (const weekIndex of weeks) {
+        value = {
+            week: weekIndex + 1,
+            days: []
+        }
+
+        for (const dayIndex of days) { /* for every item in the array of days, the following is happening */
+            value = dayIndex - startDay
             const isValid = days > 0 && days <= daysInMonth
 
-            result[dayIndex].days = {
+            console.log(isValid)
+
+            result[weekIndex].days = {
                 dayOfWeek: dayIndex + 1,
                 value: isValid && days,
             }
@@ -61,7 +68,8 @@ const createData = () => {
 
 const addCell = (existing, classString, value) => {
     const result = /* html */ `
-        <td ${classString}>
+        <td>
+            ${classString}
             ${value}
         </td>
 
