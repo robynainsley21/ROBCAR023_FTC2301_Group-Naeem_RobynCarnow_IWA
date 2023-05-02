@@ -192,48 +192,55 @@ const data = {
 // Only edit below this comment
 
 const createHtml = (athlete) => {
-  const firstName = athlete['firstName']
-  const surname = athlete.surname
-  const id = athlete.id
-  const races = athlete.races
+  const firstName = data['response']['data'][athlete]['firstName']
+  const surname = data['response']['data'][athlete].surname
+  const id = data['response']['data'][athlete]['id']
+  const races = data['response']['data'][athlete]['races'] //returns actual arrays
+
   races.reverse()  //reverses races array contents
+  console.log(races);
+
 
   const fragment = document.createDocumentFragment();
-
   const title = document.createElement('h2');
   title.innerHTML = id;
   fragment.appendChild(title);
 
 
-  const day = date.getDate();
-  const month = MONTHS[date.month];
-  const year = date.year;
-
-  const [first, second, third, fourth] = time;  //undeclared; puts amount of races in array
-  const total = first + second + third + fourth;
-
-  const hours = total / 60;
-  const minutes = total / hours / 60;
+  const day = new Date(races[0]['date']).getDay();  //not a date object to be using getDay on?
+  console.log(day);
 
 
-  const list = document.createElement('dl');
-  list.innerHTML = /* html */ `
-    <dt>Athlete</dt>
-    <dd>${firstName} ${surname}</dd>
+  // const month = MONTHS[date.month];
 
-    <dt>Total Races</dt>
-    <dd>${races.length}</dd>         //added .length to return number of races instead od entire array
 
-    <dt>Event Date (Latest)</dt>
-    <dd>${day} ${month} ${year}</dd>
+  // const year = date.getFullYear();
 
-    <dt>Total Time (Latest)</dt>
-    <dd>${hours.padStart(2, 0)} ${minutes}</dd>
-  `;
+  // const { first, second, third, fourth } = time;  //undeclared; puts amount of races in array
+  // const total = first + second + third + fourth;
 
-  fragment.appendChild(list);
+  // const hours = total / 60;
+  // const minutes = total / hours / 60;
 
-  return fragment //nothing is being returned
+
+  // const list = document.createElement('dl');
+  // list.innerHTML = /* html */ `
+  //   <dt>Athlete</dt>
+  //   <dd>${firstName} ${surname}</dd>
+
+  //   <dt>Total Races</dt>
+  //   <dd>${races.length}</dd>         //added .length to return number of races instead of entire array
+
+  //   <dt>Event Date (Latest)</dt>
+  //   <dd>${day} ${month} ${year}</dd>
+
+  //   <dt>Total Time (Latest)</dt>
+  //   <dd>${hours.padStart(2, 0)}: ${minutes}</dd>
+  // `;
+
+  // fragment.appendChild(list);
+
+  // return fragment //nothing is being returned
 }
 
 const data1 = document.querySelector('[data-athlete="NM372"]')
@@ -244,5 +251,4 @@ data2.appendChild(createHtml('SV782'));
 
 
 
-//   CODE TESTING
-console.log(data1)
+// //   CODE TESTING
