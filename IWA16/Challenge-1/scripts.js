@@ -197,59 +197,53 @@ const createHtml = (athlete) => {
   const surname = athlete.surname
   const id = athlete['id']
   const races = athlete['races'] //returns actual arrays not values
-
+  const { date, time } = races[races.length - 1]
 
   const fragment = document.createDocumentFragment();
   const title = document.createElement('h2');
   title.innerHTML = id;
   fragment.appendChild(title);
 
-  const date = new Date(races[0]['date'])
-  const day = date.getDay();  //outputs 5(day of the week, not the date); meant to output 2
-  const month = MONTHS[date.getMonth()]; //retrieves number of month from MONTH array
-  const year = date.getFullYear();
+  const dateMain = new Date(date)
+  const day = dateMain.getDate();  
+  const month = MONTHS[dateMain.getMonth()]; //retrieves number of month from MONTH array
+  const year = dateMain.getFullYear();
 
-  // const { first, second, third, fourth } = time;  //undeclared; puts amount of races in array
-  const first = races[0][1] 
-  const second = races[1][1]
-  // const third = races[2][1]
-  // const fourth = races[3][1]
+  const [first, second, third, fourth] = time;
+  const total = first + second + third + fourth;
 
+  const hours = Math.floor(total / 60);
+  const minutes = total % 60;
 
-  console.log( first )
-  // const total = first + second + third + fourth;
+  const list = document.createElement('dl');
 
-  // const hours = total / 60;
-  // const minutes = total / hours / 60;
+  list.innerHTML = `
+    <dt>Athlete</dt>
+    <dd>${firstName} ${surname}</dd>
 
+    <dt>Total Races</dt>
+    <dd>${races.length}</dd>         
+    <dt>Event Date (Latest)</dt>
+    <dd>${day} ${month} ${year}</dd>
 
-  // const list = document.createElement('dl');
-  // list.innerHTML = /* html */ `
-  //   <dt>Athlete</dt>
-  //   <dd>${firstName} ${surname}</dd>
+    <dt>Total Time (Latest)</dt>
+    <dd>${hours}: ${minutes}</dd>
+  `;
 
-  //   <dt>Total Races</dt>
-  //   <dd>${races.length}</dd>         //added .length to return number of races instead of entire array
+  fragment.appendChild(list);
 
-  //   <dt>Event Date (Latest)</dt>
-  //   <dd>${day} ${month} ${year}</dd>
-
-  //   <dt>Total Time (Latest)</dt>
-  //   <dd>${hours.padStart(2, 0)}: ${minutes}</dd>
-  // `;
-
-  // fragment.appendChild(list);
-
-  // return fragment //nothing is being returned
+  return fragment //nothing is being returned
 }
 
-// const data1 = document.querySelector('[data-athlete="NM372"]')
-// data1.appendChild(createHtml(data['response']['data']['NM372'])) //appendChild appends an item to a list; separated code lines for easier editor consumption??
+const data1 = document.querySelector('[data-athlete="NM372"]')
+data1.appendChild(createHtml(data['response']['data']['NM372'])) //appendChild appends an item to a list; separated code lines for easier editor consumption??
 
-// const data2 = document.querySelector('[data-athlete="SV782"]')
-// data2.appendChild(createHtml(data['response']['data']['SV782']));
+const data2 = document.querySelector('[data-athlete="SV782"]')
+data2.appendChild(createHtml(data['response']['data']['SV782']));
 
 
 
 // //   CODE TESTING
-createHtml(data['response']['data']['NM372'])
+ 
+// createHtml(data['response']['data']['NM372'])
+// createHtml(data['response']['data']['SV782'])
