@@ -193,13 +193,10 @@ const data = {
 
 const createHtml = (athlete) => {
   
-  const firstName = data['response']['data'][athlete]['firstName']
-  const surname = data['response']['data'][athlete].surname
-  const id = data['response']['data'][athlete]['id']
-  const races = data['response']['data'][athlete]['races'] //returns actual arrays not values
-
-  races.reverse()  //reverses races array contents
-  console.log(races);
+  const firstName = athlete['firstName']
+  const surname = athlete.surname
+  const id = athlete['id']
+  const races = athlete['races'] //returns actual arrays not values
 
 
   const fragment = document.createDocumentFragment();
@@ -213,13 +210,13 @@ const createHtml = (athlete) => {
   const year = date.getFullYear();
 
   // const { first, second, third, fourth } = time;  //undeclared; puts amount of races in array
-  const first = races[0][1] //races is now reversed so race times are second (are races reversed??)
+  const first = races[0][1] 
   const second = races[1][1]
-  const third = races[2][1]
-  const fourth = races[3][1]
+  // const third = races[2][1]
+  // const fourth = races[3][1]
 
 
-  console.log( first, second, third, fourth )
+  console.log( first )
   // const total = first + second + third + fourth;
 
   // const hours = total / 60;
@@ -246,12 +243,13 @@ const createHtml = (athlete) => {
   // return fragment //nothing is being returned
 }
 
-const data1 = document.querySelector('[data-athlete="NM372"]')
-data1.appendChild(createHtml('NM372')) //appendChild appends an item to a list; separated code lines for easier editor consumption??
+// const data1 = document.querySelector('[data-athlete="NM372"]')
+// data1.appendChild(createHtml(data['response']['data']['NM372'])) //appendChild appends an item to a list; separated code lines for easier editor consumption??
 
-const data2 = document.querySelector('[data-athlete="SV782"]')
-data2.appendChild(createHtml('SV782'));
+// const data2 = document.querySelector('[data-athlete="SV782"]')
+// data2.appendChild(createHtml(data['response']['data']['SV782']));
 
 
 
 // //   CODE TESTING
+createHtml(data['response']['data']['NM372'])
