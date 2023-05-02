@@ -29,7 +29,6 @@ const createArray = (length) => {
 
 
 const createData = () => {
-    const current = new Date()
     current.setDate(1)
 
     console.log(current)
@@ -37,7 +36,7 @@ const createData = () => {
     const startDay = current.getDay()
     const daysInMonth = getDaysInMonth(current)
 
-    const weeks = createArray(5)
+    const weeks = createArray(6)
     const days = createArray(7)
 
     console.log(days)
@@ -50,7 +49,7 @@ const createData = () => {
             week: weekIndex + 1,
             days: []
         }
-
+            console.log(value)
         for (const dayIndex of days) { /* for every item in the array of days, the following is happening */
             value = dayIndex - startDay
             const isValid = days > 0 && days <= daysInMonth
@@ -63,19 +62,22 @@ const createData = () => {
             }
         }
     }
+    return value
 }
 
 
 const addCell = (existing, classString, value) => {
     const result = /* html */ `
-        <td>
-            ${classString}
+        <td class=${classString}>            
             ${value}
         </td>
 
         ${existing}
     `
+    console.log(result)
+
     return result
+    
 }
 
 const createHtml = (data) => {
@@ -83,7 +85,7 @@ const createHtml = (data) => {
 
     for (const [week, days] of  data) {
         let inner = ""
-        addCell(inner, 'table__cell table__cell_sidebar', 'Week {week}')
+        addCell(inner, 'table__cell table__cell_sidebar', `Week ${week}`)
     
         for (const [dayOfWeek, value] in days) {
             let classString = document.getElementsByClassName('table__cell')
@@ -102,6 +104,7 @@ const createHtml = (data) => {
 
         result = `<tr>${inner}</tr>`
     }
+    return result
 }
 // Only edit above
 
