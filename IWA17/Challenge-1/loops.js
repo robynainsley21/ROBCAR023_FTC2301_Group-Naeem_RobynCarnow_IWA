@@ -29,38 +29,35 @@ const createArray = (length) => {
 
 
 const createData = () => {
-    current.setDate(1)
-
-    console.log(current)
+    current.setDate(1) //sets starting day of the week as Monday
 
     const startDay = current.getDay()
     const daysInMonth = getDaysInMonth(current)
 
     const weeks = createArray(6)
     const days = createArray(7)
+    let value = null //values to be added later
 
-    console.log(days)
-    console.log(daysInMonth)
+    let day = 0 - startDay //determines which day is the starting day
 
-    let value = null
-
-    for (const weekIndex of weeks) {
+    for (let weekIndex = 0; weekIndex <= weeks.length - 1; weekIndex++) {/* changed from for of to regular for loop; loops through each loop */
         value = {
             week: weekIndex + 1,
             days: []
         }
-            console.log(value)
-        for (const dayIndex of days) { /* for every item in the array of days, the following is happening */
+
+        for (let dayIndex = 0; dayIndex <= days.length - 1; dayIndex++) { /* for every week, the days are looped through */
+           day ++
             value = dayIndex - startDay
-            const isValid = days > 0 && days <= daysInMonth
+            const isValid = day > 0 && day <= daysInMonth //as long as the amount of day is more that 0 but less that total amount of days in current month
 
-            console.log(isValid)
 
-            result[weekIndex].days = {
-                dayOfWeek: dayIndex + 1,
-                value: isValid && days,
-            }
+            value.days.push({ 
+                dayOfWeek: dayIndex, /* days to be added to the array from right to left as the they are pushed */
+                value: isValid ? day : ''
+            })
         }
+        result.push(value)
     }
     return value
 }
@@ -74,35 +71,39 @@ const addCell = (existing, classString, value) => {
 
         ${existing}
     `
-    console.log(result)
-
     return result
     
 }
 
 const createHtml = (data) => {
-    const result = ''
+    const result = '' //to be changed later in the function
 
-    for (const [week, days] of  data) {
+    for (let j = 0; j < data.length; j++) {
         let inner = ""
-        addCell(inner, 'table__cell table__cell_sidebar', `Week ${week}`)
     
-        for (const [dayOfWeek, value] in days) {
-            let classString = document.getElementsByClassName('table__cell')
+        const days = data[j].days //retrieves the days of the current week
+        for (let k = days.length - 1; k>=0; k--) { /* checks if the current day = days' value in k' index */
+            let classString ='class = "table__cell'
             
-		    const isToday = new Date() === value
-            const isWeekend = dayOfWeek === 1 || dayOfWeek === 7
-            const isAlternate = week / 2
+		    const isToday = new Date().getDate() === days[k].value
+            const isWeekend = days[k].dayOfWeek === 0 || days[k].dayOfWeek === 6
+            const isAlternate = data[j].week % 2 === 0
 
            
 
-			if (isToday) classString = `${classString} table__cell_today`
-            if (isWeekend) classString = `${classString} table__cell_weekend`
-            if (isAlternate) classString = `${classString} table__cell_alternate`
-            addCell(inner, classString, value)
-        }
+			if (isToday) classString =  classString += 'table__cell_today'
+            if (isWeekend) classString = classString += 'table__cell_weekend'
+            if (isAlternate) classString = classString += 'table__cell_alternate'
+            classString += '"'
 
-        result = `<tr>${inner}</tr>`
+            //adding a cell for current day to html string
+            inner = addCell(inner, classString, days[k].value)
+        }
+        //addind a cell for the current week number
+        inner = addCell(inner, 'class="table__cell table__cell_sidebar"', `Week ${data[j].week}`)
+
+        //adding a row to the result string which contains the cells of current week
+        result += `<tr>${inner}</tr>`
     }
     return result
 }
