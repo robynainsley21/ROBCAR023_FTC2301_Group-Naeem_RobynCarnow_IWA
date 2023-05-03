@@ -86,16 +86,20 @@ const third = data.lists[2][1]
 const result = []
 
 const extractBiggest = () => {
+	//compares the last value in first's array with second's array; if first is biggger than second, remove value from first and add to result array
 	if (first[first.length - 1] > second[second.length - 1]) {
 		const firstLastValue = first.pop(first.length - 1)
 		return firstLastValue
+
 	}
 
+	//compares the last value in second's array with third's array; if second is biggger than third, remove value from second and add to result array
 	if (second[second.length - 1] > third[third.length - 1]) {
 		const secondLastValue = second.pop(second.length - 1)
 		return secondLastValue
 	}
 	
+	//removes third's last value, and returns it to be pushed to the end or result
 	return third.pop(third.length - 1)
 	
 	 
