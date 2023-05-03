@@ -199,10 +199,10 @@ const createHtml = (athlete) => {
   const races = athlete['races'] //returns actual arrays not values
   const { date, time } = races[races.length - 1]
 
-  const fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment(); //creates a piece of document that can be added to the DOM
   const title = document.createElement('h2');
-  title.innerHTML = id;
-  fragment.appendChild(title);
+  title.innerHTML = id; //sets the created h2 to the id of the athlete
+  fragment.appendChild(title); //puts the created h2 on the created fragment
 
   const dateMain = new Date(date)
   const day = dateMain.getDate();  
@@ -213,7 +213,7 @@ const createHtml = (athlete) => {
   const total = first + second + third + fourth;
 
   const hours = Math.floor(total / 60);
-  const minutes = total % 60;
+  const minutes = total % 60; 
 
   const list = document.createElement('dl');
 
