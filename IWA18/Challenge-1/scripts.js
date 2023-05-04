@@ -60,18 +60,19 @@ const handleAddToggle = (event) => {
     )    
 }
 
+//creating an document piece of props from data
 const handleAddSubmit = (event) => {    
-    const props = {
+    const propsData = {
         title: html.add.title.value,
         table: html.add.table.value,
         column: 'ordered'
     }
 
-    const orderData = createOrderData(props)
-    const orderPlacement = createOrderHtml(orderData)
+    const orderData = createOrderData(propsData)
+    const orderPlacement = createOrderHtml(props)
 
-    const orderedColumn = html.columns.ordered
-    orderedColumn.appendChild(orderPlacement)
+    const orderedColumn = document.querySelector('[data-column="ordered"]')
+    return orderedColumn.appendChild(orderPlacement)
 
 
 }
