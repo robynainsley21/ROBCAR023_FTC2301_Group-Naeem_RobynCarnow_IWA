@@ -68,11 +68,11 @@ const handleAddSubmit = (event) => {
     }
 
     const orderData = createOrderData(props)
-    const OrderDataHolder = orderData
-    const orderPlacement = createOrderHtml(OrderDataHolder)
+    const orderPlacement = createOrderHtml(orderData)
 
-    const orderedColumn = document.querySelector('[data-column]').appendChild(orderPlacement)
-    
+    const orderedColumn = html.columns.ordered
+    orderedColumn.appendChild(orderPlacement)
+
 
 }
 
