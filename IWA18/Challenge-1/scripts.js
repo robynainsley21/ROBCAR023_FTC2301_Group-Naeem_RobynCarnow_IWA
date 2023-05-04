@@ -1,3 +1,6 @@
+import { createOrderData } from "./data";
+import { createOrderHtml, html, updateDraggingHtml, moveToColumn } from "./view.js";
+
 /**
  * A handler that fires when a user drags over any element inside a column. In
  * order to determine which column the user is dragging over the entire event
@@ -11,7 +14,7 @@
  */
 
 const handleDragOver = (event) => { //the event might be equal to the listener; the function looks for where the (event) came from and updates the dom where it did
-    event.preventDefault();
+    event.preventDefault(); //cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
     const path = event.path || event.composedPath() //dont change this; it can be set to the first value if returned as true
     let column = null
 
@@ -33,13 +36,49 @@ const handleDragStart = (event) => {}
 
 const handleDragEnd = (event) => {}
 
-const handleHelpToggle = (event) => {}
 
-const handleAddToggle = (event) => {}
+const handleHelpToggle = (event) => {
+   if(html.help.overlay) html.help.overlay.setAttribute('open', true ) //overlay views the popup
 
-const handleAddSubmit = (event) => {}
+   //cannot set html.help.overlay.setAttribute open to true, has to make help button reappear
+    if(html.help.cancel)html.help.cancel.addEventListener(
+        'click',
+        () => {
+            html.help.overlay.close()
+        }
+    )    
+}
 
-const handleEditToggle = (event) => {}
+const handleAddToggle = (event) => {
+    if(html.add.overlay) html.add.overlay.setAttribute('open', true)
+
+    if(html.add.cancel) html.add.cancel.addEventListener(
+        'click', 
+        () => {
+            html.add.overlay.close()
+        }
+    )    
+}
+
+const handleAddSubmit = (event) => {    
+    const props = {
+        title: html.edit.title,
+        table: html.edit.table,
+        column: html.edit.column,
+        id,
+        created
+    }
+
+    const orderData = createOrderData(props)
+    const OrderDataHolder = orderData
+    const orderPlacement = createOrderData(OrderDataHolder)    
+}
+
+
+
+const handleEditToggle = (event) => {
+    // if (html.add.edit.overlay) html.add.edit.overlay.setAttribute('open', true)
+}
 
 const handleEditSubmit = (event) => {}
 
