@@ -1,4 +1,4 @@
-import { createOrderData } from "./data";
+import { createOrderData } from "./data.js";
 import { createOrderHtml, html, updateDraggingHtml, moveToColumn } from "./view.js";
 
 /**
@@ -62,16 +62,18 @@ const handleAddToggle = (event) => {
 
 const handleAddSubmit = (event) => {    
     const props = {
-        title: html.edit.title,
-        table: html.edit.table,
-        column: html.edit.column,
-        id,
-        created
+        title: html.add.title.value,
+        table: html.add.table.value,
+        column: 'ordered'
     }
 
     const orderData = createOrderData(props)
     const OrderDataHolder = orderData
-    const orderPlacement = createOrderData(OrderDataHolder)    
+    const orderPlacement = createOrderHtml(OrderDataHolder)
+
+    const orderedColumn = document.querySelector('[data-column]').appendChild(orderPlacement)
+    
+
 }
 
 
