@@ -9,12 +9,13 @@
  *
  * @param {Event} event 
  */
-const handleDragOver = (event) => {
+
+const handleDragOver = (event) => { //the event might be equal to the listener; the function looks for where the (event) came from and updates the dom where it did
     event.preventDefault();
-    const path = event.path || event.composedPath()
+    const path = event.path || event.composedPath() //dont change this; it can be set to the first value if returned as true
     let column = null
 
-    for (const element of path) {
+    for (const element of path) {//for every item of path (element) the following runs
         const { area } = element.dataset
         if (area) {
             column = area
@@ -29,12 +30,19 @@ const handleDragOver = (event) => {
 
 
 const handleDragStart = (event) => {}
+
 const handleDragEnd = (event) => {}
+
 const handleHelpToggle = (event) => {}
+
 const handleAddToggle = (event) => {}
+
 const handleAddSubmit = (event) => {}
+
 const handleEditToggle = (event) => {}
+
 const handleEditSubmit = (event) => {}
+
 const handleDelete = (event) => {}
 
 html.add.cancel.addEventListener('click', handleAddToggle)
